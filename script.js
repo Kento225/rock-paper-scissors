@@ -7,8 +7,10 @@ const result = document.querySelector(".result");
 
 
 
-
+let playerResult = 0;
+let computerResult = 0;
 let gameCounter = 0;
+
 
 choices.addEventListener("click",function(e){
     playRound()
@@ -34,24 +36,30 @@ function playerRock(){
         result.textContent = "Computer chose rock, Tie!";
     }else if(computerChoice === "scissors") {
         result.textContent = "Computer chose scissors, You win!";
+        playerResult += 1;
     }else{
         result.textContent = "Computer chose paper, You lose!";
+        computerResult += 1;
     }
 }
 function playerScissors(){
     if (computerChoice === "rock"){
         result.textContent = "Computer chose rock, You lose!";
+        computerResult += 1;
     }else if(computerChoice === "scissors") {
         result.textContent = "Computer chose scissors, Tie!";
     }else{
         result.textContent = "Computer chose paper, You win!";
+        playerResult += 1;
     }
 }
 function playerPaper(){
     if (computerChoice === "rock"){
         result.textContent = "Computer chose rock, You win!";
+        playerResult += 1;
     }else if(computerChoice === "scissors") {
         result.textContent = "Computer chose scissors, You lose!";
+        computerResult += 1;
     }else{
         result.textContent = "Computer chose paper, Tie!";
     }
@@ -67,5 +75,8 @@ paper.addEventListener("click",function(e){
 scissors.addEventListener("click",function(e){
     playerScissors()
 });
+
+console.log(computerResult);
+console.log(playerResult);
 
 }
