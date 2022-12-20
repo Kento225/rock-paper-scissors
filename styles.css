@@ -1,0 +1,42 @@
+body{
+    background-color : black;
+}
+button{
+    background-color : black;
+    border: none;
+    transition: transform .2s;
+}
+.choices{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border: red;
+    gap:60px;
+}
+.title{
+    color:greenyellow;
+    font-family:vt323;
+    font-size: 40px;
+    text-align: center;
+}
+.results{
+    display:flex;
+    justify-content: center;
+    padding-top:100px;
+}
+.box{
+    background-color:rgb(56, 55, 55);
+    width:500px;
+    height: 120px;
+    border-radius: 10px;
+
+}
+button:hover{
+    transform: scale(1.5);
+}
+.result{
+    color: greenyellow;
+    font-family: vt323,sans-serif;
+    font-size: 35px;
+    text-align: center;
+}
