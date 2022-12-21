@@ -1,5 +1,7 @@
 body{
     background-color : black;
+    color: greenyellow;
+    font-family: vt323,sans-serif;
 }
 button{
     background-color : black;
@@ -14,15 +16,13 @@ button{
     gap:60px;
 }
 .title{
-    color:greenyellow;
-    font-family:vt323;
     font-size: 40px;
     text-align: center;
 }
 .results{
     display:flex;
     justify-content: center;
-    padding-top:100px;
+    padding-top:5px;
 }
 .box{
     background-color:rgb(56, 55, 55);
@@ -35,8 +35,29 @@ button:hover{
     transform: scale(1.5);
 }
 .result{
-    color: greenyellow;
-    font-family: vt323,sans-serif;
     font-size: 35px;
     text-align: center;
+}
+.box-container{
+    display:flex;
+}
+.player-score, 
+.computer-score{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    width:180px;
+}
+.player-score p, 
+.computer-score p{
+    margin:0px 40px;
+}
+#player, #computer{
+    align-self:center;  
+}
+.game-count{
+    text-align: center;
+    font-size: 50px;
 }

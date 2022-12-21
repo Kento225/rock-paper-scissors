@@ -4,22 +4,28 @@ const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 const box = document.querySelector(".box");
 const result = document.querySelector(".result");
+const player = document.querySelector("#player");
+const computer = document.querySelector("#computer");
+const gameCount = document.querySelector("#gamecount")
 
-
-
+let currentGame = 1;
 let playerResult = 0;
 let computerResult = 0;
 let gameCounter = 0;
 
-
-choices.addEventListener("click",function(e){
-    playRound()
+// gets player choice from buttons
+rock.addEventListener("click",function(e){
+    playRound("rock")
+})
+paper.addEventListener("click", function(e){
+    playRound("paper")
 });
-function playRound(){
+scissors.addEventListener("click", function(e){
+    playRound("scissors")
+});
+function playRound(playerChoice){
 // Computer picks random number
     let getComputerChoice = Math.floor(Math.random() * 3);
-// Shows current loop number
-   console.log("Game " , ++gameCounter);
     
 // Converts random number to either rock, paper or scissors
     if (getComputerChoice === 0) {
@@ -30,8 +36,8 @@ function playRound(){
         computerChoice = "scissors";
     }
     
-// Game outcomes depending on player choice
-function playerRock(){
+// Game outcomes depending on player choice, adds score
+if (playerChoice === "rock"){
     if (computerChoice === "rock"){
         result.textContent = "Computer chose rock, Tie!";
     }else if(computerChoice === "scissors") {
@@ -42,7 +48,7 @@ function playerRock(){
         computerResult += 1;
     }
 }
-function playerScissors(){
+if (playerChoice === "scissors"){
     if (computerChoice === "rock"){
         result.textContent = "Computer chose rock, You lose!";
         computerResult += 1;
@@ -53,7 +59,7 @@ function playerScissors(){
         playerResult += 1;
     }
 }
-function playerPaper(){
+if (playerChoice === "paper"){
     if (computerChoice === "rock"){
         result.textContent = "Computer chose rock, You win!";
         playerResult += 1;
@@ -65,18 +71,22 @@ function playerPaper(){
     }
 }
 
-// Execute function depending on player choice
-rock.addEventListener("click",function(e){
-    playerRock()
-});
-paper.addEventListener("click",function(e){
-    playerPaper()
-});
-scissors.addEventListener("click",function(e){
-    playerScissors()
-});
+player.textContent = playerResult;
+computer.textContent = computerResult;
+gameCount.textContent = `Game : ${currentGame}`;
 
-console.log(computerResult);
-console.log(playerResult);
 
+// determines winner from score
+if(playerResult === 5){
+    alert("You Won!")
+    playerResult = 0
+    computerResult = 0
+    currentGame += 1
+}else if(computerResult === 5){
+    alert("You lost!")
+    currentGame += 1
+    playerResult = 0
+    computerResult = 0
+
+}
 }
